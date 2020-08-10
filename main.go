@@ -23,9 +23,9 @@ func main() {
 	// 分红后是否重新买入股票 0 不买  1 买
 	rebuy, _ := strconv.ParseInt(os.Args[4], 10, 32)
 	// 每万元的打新收益
-	pio, _ := strconv.ParseFloat(os.Args[5], 32)
+	ipo, _ := strconv.ParseFloat(os.Args[5], 32)
 
-	fmt.Printf("pio %f\n", pio)
+	fmt.Printf("ipo %f\n", ipo)
 	fmt.Printf("%s\n", filename)
 	fmt.Printf("money %f\n", money)
 	fmt.Printf("init price %f\n", price)
@@ -60,8 +60,8 @@ func main() {
 		// 分红后的现金
 		money += dividend * float64(stock*100)
 		// 加上打新的盈利
-		money += pio * (price * float64(stock*100) / 10000)
-		//fmt.Printf("pio %f\n", pio*(price*float64(stock*100)/10000))
+		money += ipo * (price * float64(stock*100) / 10000)
+		//fmt.Printf("ipo %f\n", ipo*(price*float64(stock*100)/10000))
 		if rebuy > 0 {
 			// 增加的股票(单位：手)
 			stockAdd := int64(money / (price * 100))
